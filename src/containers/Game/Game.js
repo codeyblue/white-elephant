@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Aux from '../../hoc/Aux';
+import Aux from '../../hoc/_Aux';
 import GiftExchange from '../../components/GiftExchange/GiftExchange';
 
 class Game extends Component {
