@@ -1,0 +1,20 @@
+.PresentsPanel {
+  display: flex;
+  border-radius: 5px 5px 5px 5px;
+  align-items: center;
+}
+
+.Unopen {
+  @extend .PresentsPanel;
+  background: rgb(245, 243, 243);
+}
+
+.Open {
+  @extend .PresentsPanel;
+  background: rgb(236, 236, 229);
+}
+
+.Locked {
+  @extend .PresentsPanel;
+  background: rgb(231, 225, 225);
+}

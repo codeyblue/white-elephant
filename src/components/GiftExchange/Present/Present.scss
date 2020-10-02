@@ -1,0 +1,36 @@
+.Present {
+  margin: auto;
+  min-width: 150px;
+  min-height: 150px;
+  max-width: 150px;
+  max-height: 150px;
+  border: 1px solid black;
+  padding: 10px;
+  overflow: hidden;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.UnopenPresent {
+  @extend .Present;
+  background: white;
+}
+
+.OpenPresent {
+  @extend .Present;
+  background: black;
+  color: white;
+  border: 1px solid white;
+}
+
+.LockedPresent {
+  @extend .Present;
+  background: grey;
+}
+
+/* desktop, uses these for various modes */
+// @media (min-width: 1000px) and (min-height: 700px) {
+//   .Present {
+//     width: 500px;
+//     height: 500px;
+//   }
+// }
