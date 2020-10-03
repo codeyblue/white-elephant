@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import './App.scss'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Layout from './components/Layout/Layout';
 import Game from './containers/Game/Game';

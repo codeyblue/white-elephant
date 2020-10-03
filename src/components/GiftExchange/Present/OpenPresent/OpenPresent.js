@@ -6,7 +6,9 @@ import PresentSummary from '../../PresentSummary/PresentSummary';
 class OpenPresent extends Component {
   render() {
     return (
-      <button className={classes.OpenPresent}>
+      <button
+        className={classes.OpenPresent}
+        onClick={this.props.onClick}>
         <PresentSummary present={this.props.present}/>
       </button>
     );

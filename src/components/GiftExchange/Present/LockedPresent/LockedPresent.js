@@ -6,7 +6,9 @@ import PresentSummary from '../../PresentSummary/PresentSummary';
 class LockedPresent extends Component {
   render() {
     return (
-      <button className={classes.LockedPresent}>
+      <button
+        className={classes.LockedPresent}
+        onClick={this.props.onClick}>
         <PresentSummary present={this.props.present} />
       </button>
     )

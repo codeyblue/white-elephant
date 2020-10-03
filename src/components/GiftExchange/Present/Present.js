@@ -12,15 +12,18 @@ class Present extends Component {
     switch (this.props.type) {
       case ('unopen'):
         p = <UnopenPresent
-          present={this.props.present} />
+          present={this.props.present}
+          onClick={this.props.onClick} />
         break;
       case ('open'):
         p = <OpenPresent
-          present={this.props.present} />
+          present={this.props.present}
+          onClick={this.props.onClick} />
         break;
       case ('locked'):
         p = <LockedPresent
-          present={this.props.present} />
+          present={this.props.present}
+          onClick={this.props.onClick} />
         break;
       default:
         p = null;
