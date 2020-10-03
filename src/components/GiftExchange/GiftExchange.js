@@ -1,6 +1,5 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
+import { Button, Card, CardDeck, Modal} from 'react-bootstrap';
 
 import classes from './GiftExchange.scss';
 import Present from './Present/Present';
@@ -62,15 +61,25 @@ const GiftExchange = (props) => {
           <Button onClick={hideModal}>Cancel</Button>
         </Modal.Footer>
       </Modal>
-      <div className={classes.Unopen}>
-        {transformedUnopenPresents}
-      </div>
-      <div className={classes.Open}>
-        {transformedOpenPresents}
-      </div>
-      <div className={classes.Locked}>
-        {transformedLockedPresents}
-      </div>
+
+      <Card>
+        <Card.Header as="h5">Unopen Presents</Card.Header>
+        <CardDeck>
+          {transformedUnopenPresents}
+        </CardDeck>
+      </Card>
+      <Card>
+        <Card.Header as="h5">Open Presents</Card.Header>
+        <CardDeck>
+          {transformedOpenPresents}
+        </CardDeck>
+      </Card>
+      <Card>
+        <Card.Header as="h5">Locked Presents</Card.Header>
+        <CardDeck>
+          {transformedLockedPresents}
+        </CardDeck>
+      </Card>
     </div>
   );
 }

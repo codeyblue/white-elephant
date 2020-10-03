@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
+import Card from 'react-bootstrap/Card';
 
 import classes from '../Present.scss';
 
 class OpenPresent extends Component {
   render() {
     return (
-      <button
+      <Card
         className={classes.OpenPresent}
         onClick={this.props.onClick}>
         {this.props.present.thumbnail}
-      </button>
+      </Card>
     );
   }
 }
