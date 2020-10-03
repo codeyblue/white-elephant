@@ -4,11 +4,14 @@ import Modal from 'react-bootstrap/Modal';
 
 import classes from './GiftExchange.scss';
 import Present from './Present/Present';
+import PresentSummary from './PresentSummary/PresentSummary';
 
 const GiftExchange = (props) => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const [summary, setSummary] = React.useState(null);
 
-  const showModal = () => {
+  const showModal = (present) => {
+    setSummary(present);
     setIsOpen(true);
   };
 
@@ -22,7 +25,7 @@ const GiftExchange = (props) => {
     transformedUnopenPresents = <p>There are no unopened presents</p>
   } else {
     transformedUnopenPresents = unopenPresents.map((present, i) => {
-      return <Present key={'unopen' + i} type='unopen' present={present} onClick={showModal} />
+      return <Present key={'unopen' + i} type='unopen' present={present} onClick={() => showModal(present)} />
     })
   }
   
@@ -32,7 +35,7 @@ const GiftExchange = (props) => {
     transformedOpenPresents = <p>There are no opened presents</p>
   } else {
     transformedOpenPresents = openPresents.map((present, i) => {
-      return <Present key={'open' + i} type='open' present={present} onClick={showModal} />
+      return <Present key={'open' + i} type='open' present={present} onClick={() => showModal(present)} />
     })
   }
   
@@ -42,7 +45,7 @@ const GiftExchange = (props) => {
     transformedLockedPresents = <p>There are no locked presents</p>
   } else {
     transformedLockedPresents = lockedPresents.map((present, i) => {
-      return <Present key={'locked' + i} type='locked' present={present} onClick={showModal} />
+      return <Present key={'locked' + i} type='locked' present={present} onClick={() => showModal(present)} />
     })
   }
 
@@ -50,9 +53,11 @@ const GiftExchange = (props) => {
     <div className={classes.GiftExchange}>
       <Modal show={isOpen} onHide={hideModal}>
         <Modal.Header>
-          <Modal.Title>Hi</Modal.Title>
+          <Modal.Title>Present Information</Modal.Title>
         </Modal.Header>
-        <Modal.Body>The body</Modal.Body>
+        <Modal.Body>
+          <PresentSummary present={summary}/>
+        </Modal.Body>
         <Modal.Footer>
           <Button onClick={hideModal}>Cancel</Button>
         </Modal.Footer>

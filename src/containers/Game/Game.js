@@ -7,7 +7,7 @@ class Game extends Component {
   state = {
     presents: {
       unopen: [{
-        thumbnail: 'string',
+        thumbnail: 'thumbnail',
         items: [{
           title: 'unopen 0',
           description: 'string',
@@ -24,7 +24,7 @@ class Game extends Component {
         roundSteals: 0,
         gameSteals: 0
       }, {
-        thumbnail: 'string',
+        thumbnail: 'thumbnail',
         items: [{
           title: 'unopen 2',
           description: 'string',
@@ -37,7 +37,7 @@ class Game extends Component {
         gameSteals: 0
       }],
       open: [{
-        thumbnail: 'string',
+        thumbnail: 'thumbnail',
         items: [{
           title: 'open',
           description: 'string',
@@ -50,7 +50,7 @@ class Game extends Component {
         gameSteals: 0
       }],
       locked: [{
-        thumbnail: 'string',
+        thumbnail: 'thumbnail',
         items: [{
           title: 'locked',
           description: 'string',
