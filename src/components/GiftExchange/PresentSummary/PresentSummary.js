@@ -1,27 +1,48 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
+import Accordion from 'react-bootstrap/Accordion';
+import Card from 'react-bootstrap/Card';
 
 import Aux from '../../../hoc/_Aux';
+import unopenPresent from '../../../assests/icons/present.svg';
 
 const presentSummary = (props) => {
   const presentInfo = props.present;
-  
+
   if (presentInfo.open) {
     const items = presentInfo.items
       .map((item, i) => {
+        let img;
+        if (item.pictures) {
+          img = (
+            <>
+            <img src={unopenPresent} alt="" width="100%" />
+            <hr />
+            </>
+            );
+        }
         return (
-          <div key={item.title + i}>
-            Title: {item.title}
-            <ul>
-              <li>Description: {item.description}</li>
-              <li>Pictures: {item.pictures}</li>
-              <li>Links: {item.links}</li>
-            </ul>
-          </div>
+          <Accordion key={item.title + i}>
+            <Card>
+              <Card.Header>
+                <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                  {item.title}
+                </Accordion.Toggle>
+              </Card.Header>
+              <Accordion.Collapse eventKey="0">
+                <Card.Body>
+                  {img}
+                  <p>{item.description}</p>
+                  <hr />
+                  <a href={item.links}>Item Link</a>
+                </Card.Body>
+              </Accordion.Collapse>
+            </Card>
+          </Accordion>
         );
       });
       return (
         <Aux>
-          <h3>Items</h3>
           {items}
           <p>Round Steals: {presentInfo.roundSteals}, Game Steals: {presentInfo.gameSteals}</p>
         </Aux>
@@ -29,7 +50,7 @@ const presentSummary = (props) => {
   } else {
     return (
       <Aux>
-        <p>{presentInfo.thumbnail}</p>
+        <img src={unopenPresent} alt="" width="100%" padding="200px" />
       </Aux>
     );
   }
