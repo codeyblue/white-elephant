@@ -55,7 +55,7 @@ const Players = (props) => {
         variant = 'secondary';
       }
       return (
-        <OverlayTrigger key={player.userId} trigger="click" placement="right" overlay={popover(player)}>
+        <OverlayTrigger rootClose key={player.userId} trigger="click" placement="right" overlay={popover(player)}>
         <ListGroup.Item action key={player.userId} variant={variant}>{player.username}</ListGroup.Item>
         </OverlayTrigger>
       );
