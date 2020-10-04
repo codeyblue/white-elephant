@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card';
 
 import Aux from '../../hoc/_Aux';
 import GiftExchange from '../../components/GiftExchange/GiftExchange';
 import Players from '../../components/Players/Players';
+import UserInfo from '../../components/UserInfo/UserInfo';
 
 class Game extends Component {
   state = {
@@ -25,6 +25,8 @@ class Game extends Component {
             pictures: ['array', 'of', 'strings'],
             links: ['array', 'of', 'strings']
         }],
+        currentOwner: null,
+        giftGiver: 'U000000',
         open: false,
         locked: false,
         roundSteals: 0,
@@ -39,6 +41,8 @@ class Game extends Component {
             pictures: ['array', 'of', 'strings'],
             links: ['array', 'of', 'strings']
         }],
+        currentOwner: null,
+        giftGiver: 'U000002',
         open: false,
         locked: false,
         roundSteals: 0,
@@ -54,6 +58,8 @@ class Game extends Component {
             pictures: ['array', 'of', 'strings'],
             links: ['array', 'of', 'strings']
         }],
+        currentOwner: 'U000003',
+        giftGiver: 'U000001',
         open: true,
         locked: false,
         roundSteals: 0,
@@ -69,6 +75,8 @@ class Game extends Component {
             pictures: ['array', 'of', 'strings'],
             links: ['array', 'of', 'strings']
         }],
+        currentOwner: 'U000002',
+        giftGiver: 'U000003',
         open: true,
         locked: true,
         roundSteals: 0,
@@ -93,7 +101,8 @@ class Game extends Component {
               presents={this.state.presents} />
           </Col>
           <Col md={2}>
-            <Card><Card.Header as="h5">User Info</Card.Header></Card>
+            <UserInfo
+              presents={this.state.presents} />
           </Col>
         </Row>
       </Aux>
