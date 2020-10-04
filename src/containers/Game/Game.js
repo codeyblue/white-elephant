@@ -11,33 +11,12 @@ class Game extends Component {
   state = {
     presents: {
       unopen: [{
-        id: 'P0',
-        thumbnail: 'thumbnail',
-        items: [
-          {
-            title: 'unopen 0',
-            description: 'string',
-            pictures: ['array', 'of', 'strings'],
-            links: ['array', 'of', 'strings']
-          }, {
-            title: 'unopen 1',
-            description: 'string',
-            pictures: ['array', 'of', 'strings'],
-            links: ['array', 'of', 'strings']
-        }],
-        currentOwner: null,
-        giftGiver: 'U000000',
-        open: false,
-        locked: false,
-        roundSteals: 0,
-        gameSteals: 0
-      }, {
         id: 'P1',
         thumbnail: 'thumbnail',
         items: [
           {
-            title: 'unopen 2',
-            description: 'string',
+            title: 'item 0',
+            description: 'item description',
             pictures: ['array', 'of', 'strings'],
             links: ['array', 'of', 'strings']
         }],
@@ -49,13 +28,33 @@ class Game extends Component {
         gameSteals: 0
       }],
       open: [{
+        id: 'P0',
+        thumbnail: 'thumbnail',
+        items: [
+          {
+            title: 'item 0',
+            description: 'item description',
+            pictures: ['array', 'of', 'strings'],
+            links: ['array', 'of', 'strings']
+          }, {
+            title: 'item 1',
+            description: 'item description',
+            pictures: ['array', 'of', 'strings'],
+            links: ['array', 'of', 'strings']
+        }],
+        currentOwner: 'U000001',
+        giftGiver: 'U000000',
+        open: true,
+        locked: false,
+        roundSteals: 0,
+        gameSteals: 0
+      }, {
         id: 'P2',
         thumbnail: 'thumbnail',
         items: [
           {
             title: 'open',
-            description: 'string',
-            pictures: ['array', 'of', 'strings'],
+            description: 'Item description that may have a bunch of information in it. Blah blah blah',
             links: ['array', 'of', 'strings']
         }],
         currentOwner: 'U000003',
@@ -70,8 +69,8 @@ class Game extends Component {
         thumbnail: 'thumbnail',
         items: [
           {
-            title: 'locked',
-            description: 'string',
+            title: 'item 0',
+            description: 'item description',
             pictures: ['array', 'of', 'strings'],
             links: ['array', 'of', 'strings']
         }],
