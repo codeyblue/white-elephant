@@ -2,9 +2,10 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Popover from 'react-bootstrap/Popover';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 import classes from './Players.css';
-import { ListGroup } from 'react-bootstrap';
+import userIcon from '../../assests/icons/user.svg';
 
 const Players = (props) => {
   const playerList = [{
@@ -37,8 +38,8 @@ const Players = (props) => {
     <Popover id="popover-basic">
       <Popover.Title as="h3">{player.username}</Popover.Title>
       <Popover.Content>
-        <p>{player.icon}</p>
-        <p>{player.firstName} {player.lastName}</p>
+        <img src={userIcon} alt="" width="100px" />
+        <p align="center">{player.firstName} {player.lastName}</p>
       </Popover.Content>
     </Popover>
   );
