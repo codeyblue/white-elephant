@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 
 import classes from './UserInfo.css';
 import PresentSummary from '../GiftExchange/PresentSummary/PresentSummary';
+import userIcon from '../../assests/icons/user.svg';
 
 const userInfo = (props) => {
   const presents = props.presents;
@@ -27,15 +28,17 @@ const userInfo = (props) => {
   return (
     <Card className={classes.Panel}>
       <Card.Header as="h5">Info</Card.Header>
-      <p>{userInfo.icon}</p>
-      <p>{userInfo.firstName} {userInfo.lastName}</p>
-      <p><strong>{userInfo.username}</strong></p>
-      <hr />
-      <h6>Current Present</h6>
-      <PresentSummary present={currentPresent} />
-      <hr />
-      <h6>Gift Contribution</h6>
-      <PresentSummary present={givenPresent} />
+      <Card.Body>
+        <img src={userIcon} alt="" width="100%" />
+        <p align="center">{userInfo.firstName} {userInfo.lastName}</p>
+        <p align="center"><strong>{userInfo.username}</strong></p>
+        <hr />
+        <h6>Current Present</h6>
+        <PresentSummary present={currentPresent} />
+        <hr />
+        <h6>Gift Contribution</h6>
+        <PresentSummary present={givenPresent} />
+      </Card.Body>
     </Card>
   );
 }
