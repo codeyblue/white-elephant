@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Card from 'react-bootstrap/Card';
 
 import classes from '../Present.scss';
+import unopenPresent from '../../../../assests/icons/present.svg';
 
 class UnopenPresent extends Component {
   render() {
@@ -9,7 +10,7 @@ class UnopenPresent extends Component {
       <Card
         className={classes.UnopenPresent}
         onClick={this.props.onClick}>
-        {this.props.present.thumbnail}
+        <Card.Img variant="top" src={unopenPresent} />
       </Card>
     );
   }

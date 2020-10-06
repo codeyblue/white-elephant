@@ -8,9 +8,18 @@ import PresentSummary from './PresentSummary/PresentSummary';
 const GiftExchange = (props) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [summary, setSummary] = React.useState(null);
+  const [buttons, setButtons] = React.useState(null);
 
   const showModal = (present) => {
+    let button = <Button variant="outline-success" size="lg" block>Open</Button>;
+    if (present.locked) {
+      button = <Button variant="secondary" size="lg" block disabled>Steal</Button>;
+    } else if (present.open) {
+      button = <Button variant="outline-danger" size="lg" block>Steal</Button>;
+    }
+
     setSummary(present);
+    setButtons(button);
     setIsOpen(true);
   };
 
@@ -50,35 +59,40 @@ const GiftExchange = (props) => {
 
   return (
     <div className={classes.GiftExchange}>
-      <Modal show={isOpen} onHide={hideModal}>
+      <Modal show={isOpen} onHide={hideModal} className={classes.Modal}>
         <Modal.Header>
           <Modal.Title>Present Information</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <PresentSummary present={summary}/>
+          <p />
+          {buttons}
         </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={hideModal}>Cancel</Button>
-        </Modal.Footer>
       </Modal>
 
       <Card>
         <Card.Header as="h5">Unopen Presents</Card.Header>
-        <CardDeck>
-          {transformedUnopenPresents}
-        </CardDeck>
+        <Card.Body>
+          <CardDeck className={classes.Deck}>
+            {transformedUnopenPresents}
+          </CardDeck>
+        </Card.Body>
       </Card>
       <Card>
         <Card.Header as="h5">Open Presents</Card.Header>
-        <CardDeck>
-          {transformedOpenPresents}
-        </CardDeck>
+        <Card.Body>
+          <CardDeck className={classes.Deck}>
+            {transformedOpenPresents}
+          </CardDeck>
+        </Card.Body>
       </Card>
       <Card>
         <Card.Header as="h5">Locked Presents</Card.Header>
-        <CardDeck>
-          {transformedLockedPresents}
-        </CardDeck>
+        <Card.Body>
+          <CardDeck className={classes.Deck}>
+            {transformedLockedPresents}
+          </CardDeck>
+        </Card.Body>
       </Card>
     </div>
   );
